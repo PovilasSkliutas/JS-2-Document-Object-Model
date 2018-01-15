@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>JS2</title>
+    </head>
+    <body onload="start ();">
+        <header>
+            <img src="img/logo.png" alt="logo">
+            <h1>Hello world !</h1>
+            <p>
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+                tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+                quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+            </p>
+        </header>
+        <main>
+            <h2>Our products:</h2>
+            <ul>
+                <li>Product 1</li>
+                <li>Product 2</li>
+                <li>Product 3</li>
+            </ul>
+            <p>
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+                tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+                quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+            </p>
+            <div>
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor
+                incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
+                exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
+                fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident,
+                sunt in culpa qui officia deserunt mollit anim id est laborum.
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor
+                incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
+                exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
+                fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident,
+                sunt in culpa qui officia deserunt mollit anim id est laborum.
+            </div>
+            <h1>Daugybos lentele</h1>
+            <div id="mTable"></div>
+            <div id="details"></div>
+        </main>
+        <script type="text/javascript">
+        /*funkcija aprasome kaip kintamaji ir naudojame skirtinguose objektuose
+        let accelerate = function () {
+            this.speed +=5;
+        };
+        let brake = function () {
+            this.speed -=5;
+        };
+        let m1 = {
+            g: "mazda",
+            speed: 0,
+            accelerate: accelerate,
+            brake: brake
+        };
+        let m2 = {
+            g: "lada",
+            speed: 0,
+            accelerate: accelerate,
+            brake: brake
+        };
+        m1.accelerate ();
+        m1.accelerate ();
+        m2.accelerate ();
+        m1.brake ();
+        m2.accelerate ();
+        m2.brake ();
+        console.log(m1.speed);
+        console.log(m2.speed);
+        */
+        /*
+        function start() {
+            for (let i = 0; i < document.body.children.length; i++) {
+                console.log(document.body.children[i].tagName);
+            }
+        }
+        function peleJuda (evt) {
+            console.log("X:", evt.clientX);
+            console.log("Y:", evt.clientY);
+            evt.stopPropagation ();
+        }
+        */
+        /*
+        function start() {
+            let d=document.createElement ("div");
+            document.body.appendChild(d);
+            let t=document.createElement ("h1");
+            t.appendChild (document.createTextNode("Hello"));
+            d.appendChild(t);
+            console.log(t.parentNode);
+        }*/
+        /* Daugybos lentele*/
+        function start () {
+            let t=document.createElement ("table");//sukuriama eilute headeris
+            let h=document.createElement ("tr");
+            h.appendChild (document.createElement("th"));
+            for (let i = 1; i <= 10; i++) {
+                let th=document.createElement ("th");
+                th.appendChild (document.createTextNode (i));
+                h.appendChild (th);
+            }
+            t.appendChild (h);
+            for (let i = 1; i <= 10; i++) {
+                let r=document.createElement ("tr"); //sukuriama eilute tr
+                let d=document.createElement ("td");
+                d.appendChild (document.createTextNode (i));
+                r.appendChild (d);
+                for (let j = 1; j <= 10; j++) {
+                    d=document.createElement ("td");
+                    d.appendChild (document.createTextNode (i*j));
+                    d.daugyba = i+" x "+j;
+                    d.addEventListener ("mouseover", detOn);
+                    d.addEventListener ("mouseleave", detOff);
+                    r.appendChild (d);
+                }
+                t.appendChild (r);
+            }
+            document.getElementById('mTable').appendChild (t);//suranda elementa su id "mTable" ir jam priskiria reiksme (t)
+        }
+        function detOn () {
+            document.getElementById('details').appendChild (document.createTextNode (this.daugyba));//suranda elementa su id "details" ir jam priskiria reiksme (this.daugyba)
+        }
+        function detOff () {
+            let d=document.getElementById('details');
+            d.innerHTML="";
+        }
+
+        </script>
+
+    </body>
+</html>
